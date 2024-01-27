@@ -36,5 +36,10 @@ function datos_formulario() {
     console.log(terminos);
     console.log(" si se esta leyendo esto estamos bien ok")
 }
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+/*pasa la fecha al documento */
+const  fecha = new Date();
+const año = fecha.getFullYear();
+ document.querySelector("#hora").innerHTML = año;
+ document.querySelector(".color").style.color="red";
