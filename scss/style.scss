@@ -22,9 +22,8 @@ ul,a{
     color:rgb(83, 78, 78)
 }
 i:hover{
-    
-   color:rgb(202, 148, 47)!important;
-}
+    padding: 20px !important;
+   }
 
  h1:hover{
      margin-top: 5px;
@@ -78,7 +77,10 @@ a:hover{
 /*esta es una forma de modificar una clase de boostraps*/
 .nav-link{color: wheat!important}
 .nav-link:hover{color: rgb(202, 148, 47)!important}
-
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bs-success)!important;
+  }
+  
 //prueba de javascript
 
 .prueba1{
