@@ -1,0 +1,110 @@
+
+
+
+.imagen_fondo{
+    background-image: url(../img/ima_alex4.jpg);
+    height: 400px;
+    width: 100%;
+    padding-top: 60px;
+    filter: brightness(2);
+    
+    
+    
+}
+ul,a{
+    color: rgb(83, 78, 78) !important;
+    list-style-type:none!important;
+    text-decoration: none!important;
+    
+}
+*{
+    text-align: center;
+    color:rgb(83, 78, 78)
+}
+i:hover{
+    
+   color:rgb(202, 148, 47)!important;
+}
+
+ h1:hover{
+     margin-top: 5px;
+     
+    color:rgb(202, 148, 47);
+}
+h5{
+   color: wheat !important;
+}
+h5:hover{
+    text-decoration: underline;
+    color:rgb(202, 148, 47)!important;
+}
+
+ b:hover{
+    text-align: center;
+    color:rgb(202, 148, 47)!important;
+}
+
+button:hover{
+    text-align: center;
+    color:rgb(202, 148, 47);
+}
+a:hover{
+    text-align: center;
+    color:rgb(202, 148, 47);
+}
+.img_habilidades{
+   
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+.carousel .carousel-indicators button {
+    width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background-color:#6c757d;
+   
+ }
+ .carousel .carousel-indicators button:hover {
+    background-color: red;
+ }
+ .orange{
+    background-color:   #fd7e14!important;
+
+ } 
+ .c_boobtra{
+    background-color:  #af2ca4 !important;;
+  }
+/*esta es una forma de modificar una clase de boostraps*/
+.nav-link{color: wheat!important}
+.nav-link:hover{color: rgb(202, 148, 47)!important}
+
+//prueba de javascript
+
+.prueba1{
+    color: blue;
+}
+
+
+
+
+//img:hover{
+//  display: flex;
+//  justify-content: flex-end;
+//  align-items:baseline ;
+//  width: 400px;
+//  
+//}
+
+//@import "../node_modules/bootstrap/scss/bootstrap.scss"; 
+//@import"../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+//@import "../scss/style.css";
+//@import "../node_modules/bootstrap/scss/variables";
+//@import "../node_modules/bootstrap/scss/variables-dark";
+//@import "../node_modules/bootstrap/scss/maps";
+//@import "../node_modules/bootstrap/scss/mixins";
+//@import "../node_modules/bootstrap/scss/root";
+
+
+
+

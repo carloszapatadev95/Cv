@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Zapata</title>
+    <link rel="icon" href="img/Imagen_Cv.jpg" type="img/png">
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Nav -->
+        <nav class="shadow-lg navbar navbar-expand-lg nav-fill navbar-dark bg-secondary sticky-top">
+            <div class="container-lg ">
+                <a href="#top">
+                    <h3 class=" fw-bold">Resumen</h3>
+                </a>
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class=" collapse navbar-collapse  " id="menu">
+                    <ul class=" navbar-nav navbar-brand  mx-auto mb-2 mb-lg-0 fs-4">
+                        <li class="nav-item mx-5 active">
+                            <a class="nav-link " href="#Estudios">Educacion</a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <a class="nav-link " href="#Cursos">Cursos</a>
+                        </li>
+                        <li class="nav-item  mx-5">
+                            <a class="nav-link" href="#habilidades">Habilidades</a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <button type="button" class="nav-link mx-auto" data-bs-toggle="modal"
+                                data-bs-target="#Modal">
+                                Contacto
+                            </button>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+        <!--modal-->
+        <div class="modal " id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-block justify-content-around align-items-center mx-auto ">
+                            <h3 class="modal-title fs-6  ">Rellena el formulario para contactarnos</h3>
+                        </div>
+                    </div>
+                    <div class="modal-body ">
+                        <form class="row " id="formulario">
+                            <div class="col-md-6  text-start">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" required>
+                            </div>
+
+                            <div class="col-md-6 text-start">
+                                <label for="Email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="Email" required>
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="number" class="form-control" id="telefono">
+                            </div>
+                            <div class="col-12 text-start">
+                                <label for="direccion" class="form-label">Direccion</label>
+                                <input type="text" class="form-control text-start" id="direccion"
+                                    placeholder="Ulb/condomini Calle Principal" required>
+                            </div>
+                            <div class="col-12 text-start">
+                                <label for="casa" class="form-label">Direccion 2</label>
+                                <input type="text" class="form-control text-start" id="casa"
+                                    placeholder="Apartamento, estudio o piso casa/#" required>
+                            </div>
+                            <div class="col-md-4 text-start">
+                                <label for="estado" class="form-label">Estado</label>
+                                <select id="estado" class="form-select">
+                                    <option selected="">Elegir...</option>
+                                    <option>Amazonas </option>
+                                    <option>Anzoátegui</option>
+                                    <option>Apure</option>
+                                    <option>Aragua</option>
+                                    <option>Barinas</option>
+                                    <option>Bolívar</option>
+                                    <option>Carabobo</option>
+                                    <option>Cojedes</option>
+                                    <option>Delta Amacuro</option>
+                                    <option>Distrito Capital</option>
+                                    <option>Falcón</option>
+                                    <option>Guárico</option>
+                                    <option>Lara</option>
+                                    <option>Mérida</option>
+                                    <option>Miranda</option>
+                                    <option>Monagas</option>
+                                    <option>Nueva Esparta</option>
+                                    <option>Portuguesa</option>
+                                    <option>Sucre</option>
+                                    <option>Táchira</option>
+                                    <option>Trujillo</option>
+                                    <option>Vargas</option>
+                                    <option>Yaracuy</option>
+                                    <option>Zulia </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 text-start">
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <select id="ciudad" class="form-select">
+                                    <option selected="">Elegir...</option>
+                                    <option>Puerto Ayacucho</option>
+                                    <option>Barcelona</option>
+                                    <option>Barquisimeto</option>
+                                    <option>San Fernando de Apure </option>
+                                    <option>Maracay</option>
+                                    <option>Barinas </option>
+                                    <option>Ciudad Bolívar</option>
+                                    <option>Valencia</option>
+                                    <option>San Carlos</option>
+                                    <option>Tucupita</option>
+                                    <option>Caracas</option>
+                                    <option>Coro</option>
+                                    <option>San Juan de los Morros</option>
+                                    <option>Barquisimeto</option>
+                                    <option>Mérida</option>
+                                    <option>Los Teque</option>
+                                    <option>Maturín</option>
+                                    <option>La Asunción</option>
+                                    <option>Guanare</option>
+                                    <option>Cumaná</option>
+                                    <option> San Cristóba</option>
+                                    <option>Trujillo</option>
+                                    <option>La Guaira</option>
+                                    <option>San Felipe</option>
+                                    <option>Maracaibo</option>
+                                </select>
+                            </div>
+                            <div class="col col-md-2  text-start">
+                                <label for="postal" class="form-label text-start">Codigo postal</label>
+                                <input type="number" class="form-control" id="postal">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check  text-start mt-2">
+                                    <input class="form-check-input" type="checkbox" id="terminos">
+                                    <label class="form-check-label " for="terminos">acepto terminos</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" onclick="datos_formulario()" class="btn btn-primary">Iniciar
+                                    sesión</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!--cierre modal-->
+        <!--*Encabezado del documento html-->
+        <header class="border-bottom border-1 shadow">
+            <div class="container">
+                <div class="d-lg-flex col justify-content-between align-items-baseline ">
+                    <div class="d-block  py-5 ">
+                        <img src="img/Imagen_Cv.jpg" class="rounded-circle img-fluid "
+                            style="height:250px; width:250px;" alt="foto perfil">
+                    </div> <!--=cierre div imagen=-->
+
+                    <div class="col">
+                        <header>
+                            <h1>Hola Soy <strong>Carlos Zapata</strong>.</h1>
+                        </header>
+                        <p>Y este es mi <strong>pequeño portafolio</strong>, una plantilla de sitio HTML5 gratuita y
+                            totalmente responsiva.</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </header> <!--=cierre header=-->
+        <!--Cuerpo del documento html-->
+        <main class="container-fluid">
+            <section class="row "> <!--contendor main -->
+
+
+                <!--*barra horizontal basica-->
+                <aside class="container-md ">
+                    <div class="container-md border-bottom  border-2 mb-2">
+                        <div class="d-flex justify-content-md-around align-items-md-stretch  ">
+
+
+                            <div class="row mt-3">
+                                <h3 class="mb-2">Datos Personales</h3>
+                                <div class="col col-sm-2 mt-3">
+                                    <p><strong>Nombre</strong> </p>
+                                    <p>Carlos Zapata</p>
+                                </div>
+                                <div class="col col-sm-2 mt-3 ">
+                                    <p><strong>Direccion</strong></p>
+                                    <p>Ulb. altos del note casa numero 24 los crepusculos</p>
+                                </div>
+                                <div class="col col-sm-2 mt-3 ">
+                                    <p><strong>Telefono</strong></p>
+                                    <p>+58 424-5397571</p>
+                                </div>
+                                <div class="col col-sm-2 mt-3 ">
+                                    <p><strong>Correo Electronico</strong></p>
+                                    <p>zapataaraujo95@gmail.com</p>
+                                    <p>carlos.zapata.dev@gmail.com</p>
+                                </div>
+
+                                <div class="col col-sm-2 mt-3 ">
+                                    <p><strong>Pasatiempo</strong></p>
+                                    <p>Pasear en bicicleta</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside> <!--*cierre horizontal basica-->
+
+                <!--contendor main-->
+                <article class="container-md ">
+                    <!--perfil-->
+                    <div class="container-md border-bottom  border-2 mb-2 ">
+                        <div class="row mt-3  ">
+                            <h2 class=" fw-semibold display-3"> Perfil </h2>
+                            <div class="fs-3">
+                                <p> Elegi el desarrollo <em>Full-stack</em> porque me gusta la programacion, los nuevos
+                                    desafio,
+                                    aprender cada dia mas de nuevas tecnologias,trabajar en equipo comprender y tener
+                                    nuevos puntos de vistas, trabajar en pro-de resultados que generen valor.
+                                </p>
+                            </div>
+                        </div>
+                    </div><!--cierre perfil-->
+
+
+                    <!--contenedor para educacio y experiencia laboral -->
+                    <div class="container-md   border-bottom  border-2 mb-2">
+                        <div class="col justify-content-around">
+                            <!--Estudios-->
+                            <article class="container-sm">
+                                <div id="Estudios"></div>
+                                <div class="row justify-content-center">
+                                    <!--contenedor sel articulo educacion-->
+                                    <div class="col-11 col-sm-6 justify-content-sm-around">
+                                        <div>
+                                            <h2 class=" fw-semibold display-5 ">Educacion</h2>
+                                        </div>
+                                        <ul class=" list-group list-group-flush">
+                                            <li class="list-group-item text-start ">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Septiembre 10/2008
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"> </i>
+                                                Bachiller en Ciencia
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Intituto Popular para la Educacion
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Lara venezuela
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Septiembre 12/2016
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Tecnico Superior Universitario Mantenimiento electronico
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Instituto Universitario Antonio jose de sucre
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Lara Venezuela
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--contenedor sel articulo experiencia-->
+                                    <div class="col-11 col-sm-6 justify-content-sm-around">
+                                        <div>
+                                            <h2 class="fw-semibold display-5 ">Experiencia</h2>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Tecnico Ensamblador de Componentes Electronicos
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Enero 2009
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Solte C.A
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Tecnico Instalador de Telecomunicaciones
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Enero 2017
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Ingenieria & Computacion RL C.A
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Vendedor Tienda Fisica de componentes electronicos
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Enero 2019
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                ElectonicSolution C.A
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-0-circle me-2 fs-3  " style="color: red;"></i>
+                                                Developer React Native
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Enero 2021
+                                            </li>
+                                            <li class="list-group-item text-start">
+                                                <i class="bi-chevron-compact-right fs-4 " style="color: #0d6efd;"></i>
+                                                Solteca C.A
+                                            </li>
+                                        </ul>
+                                    </div> <!--cierre contenedor sel articulo experiencia-->
+                                </div> <!--cierre del contenedor del de experiencia y educacion tipo row -->
+                            </article>
+                        </div>
+                    </div><!-- cierre del contenedor para educacio y experiencia laboral -->
+
+                    <!--=cursos=-->
+                    <article class="container-md justify-content-center ">
+                        <div id="Cursos"></div>
+                        <h2 class="fw-semibold display-3">Cursos</h2>
+
+                        <div class="row justify-content-around align-items-center ">
+                            <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
+
+                                <h4>HTML</h4>
+                                <img src="img/html5.jpg" alt="HTML"
+                                    class="img-thumbnail rounded-4   border-success ">
+                            </div>
+                            <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
+
+                                <h4>CSS</h4>
+                                <img src="img/CSS3.png" alt="CSS" class="img-thumbnail  rounded-4 border-warning">
+                            </div>
+                            <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
+
+                                <h4>JAVASCRIPT</h4>
+                                <img src="img/JavaScript-logo.png" alt="JAVASCRIPT"
+                                    class="img-thumbnail rounded-4 border-primary ">
+                            </div>
+                            <div class="col-10 col-sm-3  mb-3 mx-3 text-center">
+
+                                <h4>GitHub</h4>
+                                <img src="img/Github.png" alt="GitHub" class="img-thumbnail rounded-4 orange ">
+                            </div>
+                            <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
+
+                                <h3>Git</h3>
+                                <img src="img/Git.jpg" alt="Git" class="img-thumbnail rounded-4 border-black ">
+                            </div>
+                            <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
+
+                                <h3>React Native</h3>
+                                <img src="img/react-native.png" alt="react-native"
+                                    class="img-thumbnail rounded-4 border-danger">
+                            </div>
+                        </div>
+                    </article> <!--=cieere  cursos=-->
+
+                    <!--=habilidades=-->
+                    <article class="container-md  justify-content-center border-bottom border-1 mb-3">
+                        <div id="habilidades"></div> <!--id para navegacion directa-->
+                        <h2 class=" fw-semibold display-3">Habilidades</h2>
+                        <div class="row  justify-content-around">
+                            <div class="col-10 col-md-4 p-1 mb-3 align-content-center ">
+                                <div id="C_deslizante" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="0"
+                                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="1"
+                                            aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="2"
+                                            aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="3"
+                                            aria-label="Slide 4"></button>
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="4"
+                                            aria-label="Slide 5"></button>
+                                        <button type="button" data-bs-target="#C_deslizante" data-bs-slide-to="5"
+                                            aria-label="Slide 5"></button>
+                                    </div>
+                                    <div class="carousel-inner ">
+                                        <div class="carousel-item active" data-bs-interval="3000">
+                                            <img src="img/html5.jpg" class="img_habilidades">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="3000">
+                                            <img src="img/CSS3.png" class="img_habilidades">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="3000">
+                                            <img src="img/JavaScript-logo.png" class="img_habilidades">
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="3000">
+                                            <img src="img/Github.png" class="img_habilidades">
+                                        </div>
+                                        <div class="carousel-item " data-bs-interval="3000">
+                                            <img src="img/Git.jpg" class="img_habilidades">
+                                        </div>
+                                        <div class="carousel-item " data-bs-interval="3000">
+                                            <img src="img/Boostrap.jpg" class="img_habilidades">
+                                        </div>
+                                    </div> <!--=cierre del carousel inner=-->
+                                </div><!--=cierre del carousel main=-->
+                            </div>
+                            <div class="col-11 col-md-4 p-1 mb-3   ">
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start"> HTML</div>
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated orange "
+                                            style="width: 80%">80%</div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start"> CSS</div>
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                            style="width: 75%">75%</div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start">JAVASCRIPT</div>
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning "
+                                            style="width: 60%">60%</div>
+                                    </div>
+                                </div>
+                            </div> <!--cierre div barras-->
+                            <div class="col-11 col-md-4 p-1 mb-3 ">
+
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start">GITHUB</div>
+
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark "
+                                            style="width: 60%">60%</div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start">GIT</div>
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                            style="width: 65%">65%</div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 ms-auto mb-3">
+                                    <div class="text-start">BOOSTRAP</div>
+                                    <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated c_boobtra"
+                                            style="width: 75%">75%</div>
+                                    </div>
+                                </div>
+                            </div> <!--cierre div barras-->
+
+                        </div> <!--cierre prueba uno posicion-->
+                    </article> <!--=habilidades cierre=-->
+                </article><!--cierre contendor main-->
+            </section><!--cierre contendor secciones main-->
+        </main>
+    </div>
+
+
+    <!--*footer-->
+    <footer>
+        <div class="container-fluid bg-secondary "> <!--contenedor main footer-->
+
+            <div class="col justify-content-center">
+
+
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" class="mx-2"><i class="bi-facebook "
+                        style=" color: rgb(97, 160, 255); font-size: 25px;"></i></a>
+                <a href="#" class="mx-2"><i class="bi-instagram "
+                        style="color: rgb(255, 160, 97); font-size: 25px; "></i></a>
+                <a href="https://twitter.com/zapata_Dev" target="_blank" class="mx-2"><i class="bi-twitter-x "
+                        style="color: rgb(29, 185, 123); font-size: 25px; color: black; "></i></a>
+                <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
+                    target="_blank" class="mx-2"><i class="bi-whatsapp  "
+                        style=" color: green; font-size: 25px; "></i></a>
+
+            </div>
+            <div>
+                <p>&#169; 2023 Grupo solteca C.A</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
