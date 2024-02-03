@@ -43,3 +43,60 @@ const  fecha = new Date();
 const año = fecha.getFullYear();
  document.querySelector("#hora").innerHTML = año;
  document.querySelector(".color").style.color="red";
+// Crear el  id para ubicar la imagen
+const img = document.querySelector('#img_p');
+
+// Establecer el atributo src con la ruta de la imagen
+img.src = 'img/logo.png';
+img.alt = " imagen"
+
+//localStorage.clear('rutaimagen')
+// Agregar la imagen al documento HTML
+document.querySelector("#img_p").innerHTML = img;
+
+//funcion como cambiar imagen en de perfil
+const Mostar_imagen = (event) => {
+ console.log("hola");
+    const img_cambio = document.querySelector('#img_p');//selecion del contenedor por id
+    const file = event.target.files[0]; //variable que captura la ruta del archivo a cambiar
+    const leer_img = new FileReader();//variable que lee el archivo en la ruta
+    
+    leer_img.onload = function () {//funcion que carga la ruta del archivo
+
+        img_cambio.src = leer_img.result;
+        
+        console.log("Nombre del archivo:", file.name);
+        localStorage.setItem('rutaimagen', leer_img.result );
+       
+    };
+    if (file) {
+        leer_img.readAsDataURL(file);//asigna la nueva imagen
+        
+    }
+
+   
+
+}
+  // Cargar la imagen guardada al cargar la página
+window.addEventListener('load', ()=>{
+    const rutaguardada = localStorage.getItem('rutaimagen');
+    if (rutaguardada) {
+        document.querySelector('#img_p').src = rutaguardada;
+        
+    }
+});
+
+   // Guardar la imagen antes de actualizar o cerrar la página
+window.addEventListener('beforeunload', ()=>{
+    const ruta_imagen = document.querySelector('#img_p').src; 
+    localStorage.setItem('rutaimagen', ruta_imagen);
+});
+
+
+
+
+function llamar() {
+
+    document.querySelector("#miinput").click();
+        
+}

@@ -21,9 +21,6 @@ ul,a{
     text-align: center;
     color:rgb(83, 78, 78)
 }
-i:hover{
-    padding: 10px !important;
-   }
 
  h1:hover{
      margin-top: 5px;
@@ -83,8 +80,21 @@ a:hover{
   
 //prueba de javascript
 
-.prueba1{
+.color{
     color: blue;
+}
+#Iconcolor{
+    color: rgb(10, 10, 10); 
+}
+
+#Iconcolor:hover{
+    color: rgb(236, 213, 6); 
+}
+.galeria{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+
 }
 
 

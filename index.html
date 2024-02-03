@@ -175,11 +175,12 @@
         <header class="border-bottom border-1 shadow">
             <div class="container">
                 <div class="d-lg-flex col justify-content-between align-items-baseline ">
-                    <div class="d-block  py-5 ">
-                        <img src="img/Imagen_Cv.jpg" class="rounded-circle img-fluid "
-                            style="height:250px; width:250px;" alt="foto perfil">
+        
+                    <div class="d-block position-relative  mt-4 mb-4">
+                        <img src="" id="img_p" class="rounded-circle galeria " alt="foto perfil">
+                        <i class="bi-camera display-4 position-absolute bottom-0 end-0  " id="Iconcolor"  onclick="llamar()" return false;  ></i>
                     </div> <!--=cierre div imagen=-->
-
+                    <input type="file" accept="assets/*" onchange="Mostar_imagen(event)" id="miinput" style="display: none;" >
                     <div class="col">
                         <header>
                             <h1>Hola Soy <strong>Carlos Zapata</strong>.</h1>
@@ -503,10 +504,13 @@
                         </div> <!--cierre prueba uno posicion-->
                     </article> <!--=habilidades cierre=-->
                    <!--=contenedor del boton fijo del washatp y otros-->
-                    <div class="container-md float-end mt-5"> 
+                    <div class="container-fluid mt-5 "> 
+                       
+                        
                         <div class="row justify-content-end align-items-end fixed-bottom mb-5 ">
-                          <div class="col-2  mb-5 mt-3 ">
-                           <div class="mb-0 " >
+                            <div class="col-1  align-items-center">
+                          <div class="col-2  mb-1 me-3 ">
+                           <div class=" mb-1 " >
                             <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
                             target="_blank" 
                             data-bs-toggle="tooltip" 
@@ -517,18 +521,18 @@
                             <i class="bi-whatsapp  rounded-circle border-2  display-6 " style=" color: green; "></i>
                             </a>
                          </div>
-                         <div class="mb-md-2 ">
+                         <div class="mb-md-2 mt-1 ms-1 ">
                             <a href="https://carloszapatadev95.github.io/web_html/"
                             target="_blank" 
                             data-bs-toggle="tooltip" 
                             data-bs-placement="left" 
                             data-bs-title="¿+ Proyecto?" 
                             data-bs-custom-class="custom-tooltip"
-                            class="mx-2">
-                            <img  src="img/logo.png"  class="rounded-circle  shadow " style=" height: 50px; width: 50px;  ">
+                            class="me-2">
+                            <img  src="img/logo.png"  class="rounded-circle  shadow " style=" height: 40px; width: 40px;  ">
                             </a>
                          </div>
-                         <div class="mb-4 ">
+                         <div class="mb-4 mt-1 ">
                             <a href="repositorio/github-pages.zip"
                             download="github-pages"
                             target="_blank" 
@@ -541,7 +545,8 @@
                             </a>
                          </div>
                        </div>
-                     </div>
+                        </div>
+                    </div>
                    </div>    <!--= cierre contenedor del boton fijo del washatp y otros-->
                 </article><!--cierre contendor main-->
             </section><!--cierre contendor secciones main-->
@@ -571,7 +576,7 @@
             </div>
            
             <div class="col justify-content-center ">
-             <p class="color" >&#169; <span class="color" id="hora">2023</span> Grupo solteca C.A</p>
+             <p class="color" >&#169; <span  id="hora">2023</span> Grupo solteca C.A</p>
             </div>
             
         </div>
