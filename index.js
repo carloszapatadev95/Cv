@@ -49,7 +49,7 @@ const img = document.querySelector('#img_p');
 // Establecer el atributo src con la ruta de la imagen
 img.src = 'img/icon_login.png';
 img.alt = " imagen"
-localStorage.clear()
+
 //localStorage.clear('rutaimagen')
 // Agregar la imagen al documento HTML
 document.querySelector("#img_p").innerHTML = img;
