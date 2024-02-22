@@ -1,3 +1,11 @@
+@charset "UTF-8";
+.boton {
+  background-color: transparent;
+  border: none;
+  outline: none; /* Esta línea elimina el contorno */
+  color: red;
+}
+
 .imagen_fondo {
   background-image: url(../img/ima_alex4.jpg);
   height: 400px;

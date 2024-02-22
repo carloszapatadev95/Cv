@@ -8,10 +8,7 @@ console.log(consola);
 
 function datos_formulario() {
     //e.preventDefault();
-    setInterval(() => {
-        location.reload();
-        console.log("se recargo la pagina luego de 4 segundos");
-    }, 4000);
+   
     const nombre = document.querySelector("#nombre").value;
     const apellido = document.querySelector("#apellido").value;
     const email = document.querySelector("#Email").value;
@@ -100,3 +97,4 @@ function llamar() {
     document.querySelector("#miinput").click();
         
 }
+

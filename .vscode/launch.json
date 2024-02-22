@@ -13,7 +13,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\usuario\\Desktop\\PageCv\\index.html"
+            "file": "C:\\xampp\\htdocs\\Cv\\index.html"
         },
         
       
