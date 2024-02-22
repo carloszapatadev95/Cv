@@ -1,9 +1,8 @@
 @charset "UTF-8";
-.boton {
+.boton_style {
   background-color: transparent;
   border: none;
   outline: none; /* Esta línea elimina el contorno */
-  color: red;
 }
 
 .imagen_fondo {
