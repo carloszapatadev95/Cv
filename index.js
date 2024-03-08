@@ -7,7 +7,7 @@ console.log(consola);
 //formulario.addEventListener("submit", datos_formulario);
 
 function datos_formulario(e) {
-    e.preventDefault();
+    //e.preventDefault();
    
     const nombre = document.querySelector("#nombre").value;
     const apellido = document.querySelector("#apellido").value;

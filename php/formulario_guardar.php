@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.css" integrity="sha512-bR79Bg78Wmn33N5nvkEyg66hNg+xF/Q8NA8YABbj+4sBngYhv9P8eum19hdjYcY7vXk/vRkhM3v/ZndtgEXRWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-</head>
+</heads>
 <body>
     
 <?php
@@ -20,21 +20,32 @@ echo "<h1>esto es php conectando a la base de datos</h1>";
 $conectar = mysqli_connect("localhost", "carlos", "carlos09#", "formulario de registro web page");
 
 if (!$conectar) {
-    echo "no se puede conectar a l base de datos";
+    echo "<h2>no se puede conectar a la base de datos</h2>";
 }else {
- echo "conectado a la base de datos";
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$correo = $_POST['Email'];
-$telefono = $_POST['telefono'];
-$direccion1 = $_POST['direccion'];
-$direccion2 = $_POST['casa'];
-$estado = $_POST['estado'];
-$ciudad = $_POST['ciudad'];
-$codigo_postal =$_POST['postal'];
-$terminos = $_POST['terminos'];
+ echo "<h2> conectado a la base de datos </h2>";
+ echo "<h5> nombre  apellido:</h5>  ". $nombre = $_POST['nombre'];
+ echo   " ". $apellido = $_POST['apellido'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5> correo:</h5>  ".  $correo = $_POST['Email'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5> telefono: </h5> ".  $telefono = $_POST['telefono'];
+ echo ""?"<br>":"<br>";
+ echo "<h5> direccion 1:</h5>  ".  $direccion1 = $_POST['direccion'];
+ echo ""?"<br>":"<br>";
+ echo "<h5>direccion 2:</h5>   ".  $direccion2 = $_POST['casa'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5> estado:</h5>  ".   $estado = $_POST['estado'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5>ciudad:</h5>   ".  $ciudad = $_POST['ciudad'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5>postal:</h5>   ".  $codigo_postal =$_POST['postal'];
+ echo ""?"<br>":"<br>";
+ echo  "<h5>terminos:</h5>   ".  $terminos = $_POST['terminos'];
 
- $sql = "INSERT INTO registro (  nombre, apellido, correo, telefono, direccion_uno, direccion_dos, estado, ciudad, codigo_postal, terminos)  VALUES('$nombre','$apellido', '$correo', '$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal', '$terminos'   )";
+
+
+ $sql = "INSERT INTO registro (  nombre, apellido, correo, telefono, direccion_uno, direccion_dos,  estado, ciudad,  codigo_postal,  terminos)  
+         VALUES('$nombre','$apellido', '$correo','$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos'   )";
 
   $ejecutar = mysqli_query($conectar, $sql);
   if (!$ejecutar){
@@ -42,19 +53,15 @@ $terminos = $_POST['terminos'];
 
   }else{
     echo ""?"<br>":"<br>";
-    echo "datos guardados";
-   // window.location.reload(true); // Recarga desde el servidor
-   
-    
+    echo "<h2>datos guardados</h2>";
+    header("Location: http://localhost/cv/ ");
     header("Location: http://192.168.0.105/cv/ ");
     header("Location: http://localhost/cv/ ");
-exit;
-
-  
+    exit;
     
   }
 
-}
+  }
 
 ?>
 </body>

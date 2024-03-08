@@ -15,6 +15,12 @@
             "name": "Open index.html",
             "file": "C:\\xampp\\htdocs\\Cv\\index.html"
         },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open formulario_guardar.php",
+            "file": "C:\\xampp\\htdocs\\Cv\\php\\formulario_guardar.php"
+        },
         
       
         
