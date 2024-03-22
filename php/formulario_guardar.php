@@ -17,7 +17,11 @@
     
 <?php
 echo "<h1>esto es php conectando a la base de datos</h1>";
-$conectar = mysqli_connect("localhost", "carlos", "carlos09#", "formulario de registro web page");
+$servidorbd = 'localhost';
+$usuario = "carlos";
+$password = "carlos09#";
+$base_datos = 'formulario de registro web page';
+$conectar = mysqli_connect($servidorbd, $usuario, $password,$base_datos);
 
 if (!$conectar) {
     echo "<h2>no se puede conectar a la base de datos</h2>";
@@ -55,13 +59,17 @@ if (!$conectar) {
     echo ""?"<br>":"<br>";
     echo "<h2>datos guardados</h2>";
     header("Location: http://localhost/cv/ ");
-    header("Location: http://192.168.0.105/cv/ ");
+    //header("Location: http://192.168.0.105/cv/ ");
     header("Location: http://localhost/cv/ ");
-    exit;
+    //header("Location: http://192.168.0.105/cv/ ");
+  
+    $ejecutar->close();
     
+    exit;
   }
-
+  
   }
+  
 
 ?>
 </body>
