@@ -1,5 +1,6 @@
 
-const consola = "hola consola"
+
+const consola = "hola consola "
 console.log(consola);
 
 //const formulario = document.querySelector("#formulario");
@@ -35,8 +36,8 @@ function datos_formulario(e) {
    
     window.location.href = 'index.js';
 }
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+//const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+//const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 /*pasa la fecha al documento */
 const  fecha = new Date();
 const año = fecha.getFullYear();
@@ -76,7 +77,7 @@ const Mostar_imagen = (event) => {
    
 
 }
-  // Cargar la imagen guardada al cargar la página
+  // Cargar la imagen guardada al recargar la página
 window.addEventListener('load', ()=>{
     const rutaguardada = localStorage.getItem('rutaimagen');
     if (rutaguardada) {
@@ -101,3 +102,67 @@ function llamar() {
 }
 
 
+//probando fetch
+//solicitando los datos a la base de datos
+
+// const ppp = () => {
+      
+//       //const url = 'http://localhost/Api_php/api.php';
+//       const url = 'http://localhost/cv/php/api.php';
+//       console.log('hola soy fetch conetando a la api php', url);
+   
+//     fetch(url)
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log('hola soy el metodo fetch respondiendo la solicitud de datos');
+//     localStorage.setItem("dato", data.nombre);
+//     let dato_nombreguardado = localStorage.getItem("dato");
+//     console.log('dato del lado del servidor:::',data, "  /dato del lado del cliente ->", dato_nombreguardado);
+//     document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado;
+   
+    
+  
+//   })
+//   .catch(error => console.error('Error al cargar datos desde PHP:', error));
+// }
+//   ppp();
+    // Cargar el dato guardado al recargar la página
+
+//    // Guardar la imagen antes de actualizar o cerrar la página
+//    window.addEventListener('beforeunload', ()=>{
+//     const ruta_imagen = document.querySelector('#recuperar_nombre').innerHTML; 
+//     localStorage.setItem('dato1', ruta_imagen);
+// });
+
+
+
+
+// ejemplo de busqueda de usuario 
+const peticion = () => {
+  const usuarioABuscar = document.querySelector("#Email").value;
+console.log(usuarioABuscar);
+fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.error) {
+            console.error("Usuario no encontrado:", data.error);
+        } else {
+            console.log("Datos del usuario:", data);
+                localStorage.setItem("dato", data.nombre);
+                let dato_nombreguardado = localStorage.getItem("dato");
+                document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado;
+               
+        }
+    }).catch((error) => {
+        console.error("Error al buscar usuario:", error);
+    });
+}
+peticion();
+
+    // window.addEventListener('load', ()=>{
+    //   const datoguardado = localStorage.getItem('dato');
+    //   if (datoguardado) {
+    //       document.querySelector('#recuperar_nombre').innerHTML = datoguardado;
+          
+    //   }
+    //  });

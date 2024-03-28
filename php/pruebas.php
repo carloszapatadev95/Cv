@@ -24,7 +24,7 @@
     }else{
         echo '<h2>conectado a la basa de datos</h2>';
         // con esta variable consultamos todos los datos de la tabla de la base de datos
-        $valor_buscar = 'fdvfdv@gmail.com';
+        $valor_buscar = "ssas@gmail.com";//$_POST['Email'];
         $consulta_datos = "SELECT * FROM registro";
         $user = "SELECT * FROM registro  WHERE correo = '$valor_buscar' ";
         $consulta = mysqli_query( $conectar, $consulta_datos, );
@@ -35,23 +35,23 @@
             die('Error en la consulta: ' . $conectar->error);
         }else{
              $filas = $consulta->num_rows;   
-            echo "<h3>los elementos registrados que existen en la tabla son</h3>";
-            echo "<div>"."los datos son  ".$filas."</div>";  
+            echo "<h3>los elementos registrados que existen en la tabla son: ".$filas." </h3>";
+            
           
          }
          if (!mysqli_query($conectar, $user)) {
             echo 'jodete';
             die('Error en la consulta: ' . $conectar->error);
         } else {
-            if (mysqli_num_rows($consulta1) > 0) {
+            if (mysqli_num_rows($consulta1)>0) {
                 echo "<h3>El correo existe </h3>"; 
-                echo "<script>alert('El correo existe ');</script>";
             } else {
                 echo  "<h4>El correo no existe </h4>";
             } 
         }
-        
+    
     }
+    mysqli_close($conectar);   
     ?> 
     <table class="table table-hover ">
         <thead>
@@ -75,7 +75,8 @@
            echo "<td>".@$fila->correo."</td>";    
            echo "<td>".@$fila->telefono."</td>";    
            echo "</tr>";
-           }       
+           }  
+           mysqli_free_result($consulta);     
          ?>
 
 
@@ -83,7 +84,8 @@
     </table>   
     <?php
       $nombre = $valor_buscar;
-        $edad = 30;
+        $edad = 30;//$consulta1->fetch_object();
+        mysqli_free_result($consulta1);
      ?>
 
 <script>

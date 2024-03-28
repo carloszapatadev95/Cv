@@ -58,20 +58,22 @@ if (!$conectar) {
   }else{
     echo ""?"<br>":"<br>";
     echo "<h2>datos guardados</h2>";
-    header("Location: http://localhost/cv/ ");
-    //header("Location: http://192.168.0.105/cv/ ");
-    header("Location: http://localhost/cv/ ");
-    //header("Location: http://192.168.0.105/cv/ ");
-  
-    $ejecutar->close();
+    echo "<h2>".$nombre." ".$apellido."</h2>";
+   //header("Content-type: aplication/json");
     
-    exit;
+    //header("http://localhost/cv/php/api.php");
+    //header("Location: http://192.168.0.105/cv/ ");
+    header("Location: http://localhost/cv/ ");
+    //header("Location: http://192.168.0.105/cv/ ");
+     
+
   }
-  
+  mysqli_close($conectar);
   }
   
 
 ?>
+
 </body>
 </html>
 
