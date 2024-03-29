@@ -138,10 +138,15 @@ function llamar() {
 
 
 // ejemplo de busqueda de usuario 
+
 const peticion = () => {
-  const usuarioABuscar = document.querySelector("#Email").value;
-console.log(usuarioABuscar);
-fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`)
+    const usuarioABuscar = document.querySelector("#buscar_usuario").value;
+   const usuarioABuscar1 = document.querySelector("#Email").value;
+    
+   
+    if(usuarioABuscar){
+        console.log("desde mi buscador", usuarioABuscar);
+        fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`)
     .then((response) => response.json())
     .then((data) => {
         if (data.error) {
@@ -156,10 +161,28 @@ fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`)
     }).catch((error) => {
         console.error("Error al buscar usuario:", error);
     });
-}
-peticion();
+} else {
+    console.log( "desde el formulario", usuarioABuscar1);
+    fetch(`http://localhost/cv/php/api.php`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.error) {
+            console.error("Usuario no encontrado:", data.error);
+        } else {
+            console.log("Datos del usuario:", data);
+                localStorage.setItem("dato", data.nombre);
+                let dato_nombreguardado = localStorage.getItem("dato");
+                document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado;
+               
+        }
+    }).catch((error) => {
+        console.error("Error al buscar usuario:", error);
+    });
 
-    // window.addEventListener('load', ()=>{
+}
+};
+  peticion();
+// window.addEventListener('load', ()=>{
     //   const datoguardado = localStorage.getItem('dato');
     //   if (datoguardado) {
     //       document.querySelector('#recuperar_nombre').innerHTML = datoguardado;

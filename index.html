@@ -9,16 +9,21 @@
     <title>Carlos Zapata</title>
     <link rel="icon" href="img/Imagen_Cv.jpg" type="img/png">
     <link rel="stylesheet" href="scss/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.css" integrity="sha512-bR79Bg78Wmn33N5nvkEyg66hNg+xF/Q8NA8YABbj+4sBngYhv9P8eum19hdjYcY7vXk/vRkhM3v/ZndtgEXRWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.css"
+        integrity="sha512-bR79Bg78Wmn33N5nvkEyg66hNg+xF/Q8NA8YABbj+4sBngYhv9P8eum19hdjYcY7vXk/vRkhM3v/ZndtgEXRWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
 
 <body>
     <div class="container-fluid">
-      
+
         <!-- Nav -->
         <nav class="shadow-lg navbar navbar-expand-lg nav-fill navbar-dark bg-secondary sticky-top">
             <div class="container-lg ">
@@ -31,24 +36,29 @@
                 </button>
                 <div class=" collapse navbar-collapse  " id="menu">
                     <ul class=" navbar-nav navbar-brand  mx-auto mb-2 mb-lg-0 fs-4">
-                        <li class="nav-item mx-5 active">
+                        <li class="nav-item mx-4 active">
                             <a class="nav-link " href="#Estudios">Educacion</a>
                         </li>
-                        <li class="nav-item mx-5">
+                        <li class="nav-item mx-4">
                             <a class="nav-link " href="#Cursos">Cursos</a>
                         </li>
-                        <li class="nav-item  mx-5">
+                        <li class="nav-item  mx-4">
                             <a class="nav-link  " href="#habilidades">Habilidades</a>
                         </li>
-                        <li class="nav-item mx-5 ">
-                            <button type="button" class="nav-link mx-auto boton_style " data-bs-toggle="modal"  data-bs-target="#Modal">
+                        <li class="nav-item mx-4 ">
+                            <button type="button" class="nav-link mx-auto boton_style " data-bs-toggle="modal"
+                                data-bs-target="#Modal">
                                 Contacto
                             </button>
                         </li>
+                        <li class="nav-item mx-4 ">
+                            <form action="./php/formulario_guardar.php" method="get">
+                                <input class="form-control me-2"  id="buscar_usuario" placeholder="telefono">
+                            <button type="button" class="btn btn-outline-light" onclick="peticion()"  >Buscar Usuario </button>
+                        </form>
+                        </li>
                     </ul>
-
                 </div>
-
             </div>
         </nav>
         <!--modal-->
@@ -61,7 +71,7 @@
                         </div>
                     </div>
                     <div class="modal-body ">
-                        <form class="row " action="./php/formulario_guardar.php" method="POST"  >
+                        <form class="row " action="./php/formulario_guardar.php" method="POST">
                             <div class="col-md-6  text-start">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -77,7 +87,7 @@
                             </div>
                             <div class="col-md-6 text-start">
                                 <label for="telefono" class="form-label">Telefono</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" >
+                                <input type="number" class="form-control" id="telefono" name="telefono">
                             </div>
                             <div class="col-12 text-start">
                                 <label for="direccion" class="form-label">Direccion</label>
@@ -91,7 +101,7 @@
                             </div>
                             <div class="col-md-4 text-start">
                                 <label for="estado" class="form-label">Estado</label>
-                                <select id="estado" name="estado"  class="form-select">
+                                <select id="estado" name="estado" class="form-select">
                                     <option selected="">Elegir...</option>
                                     <option>Amazonas </option>
                                     <option>Anzoátegui</option>
@@ -158,11 +168,14 @@
                                 <div class="form-check  text-start mt-2">
                                     <label class="form-check-label " for="terminos">acepto terminos</label>
                                     <input class="form-check-input" type="checkbox" id="terminos" name="terminos">
-                                   
+
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" onclick="datos_formulario()"  value="Enviar"  class="btn btn-primary">Iniciar
+                                <button type="submit" onclick=" ()=>{
+                                      peticion();
+                                    datos_formulario();}" value="Enviar"
+                                    class="btn btn-primary">Iniciar
                                     sesión</button>
                             </div>
                         </form>
@@ -174,15 +187,17 @@
         <header class="border-bottom border-1 shadow">
             <div class="container">
                 <div class="d-lg-flex col justify-content-between align-items-baseline ">
-        
+
                     <div class="d-block position-relative  mt-4 mb-4">
                         <img src="" id="img_p" class="rounded-circle galeria " alt="foto perfil">
-                        <i class="bi-camera display-4 position-absolute bottom-0 end-0  " id="Iconcolor"  onclick="llamar()" return false;  ></i>
+                        <i class="bi-camera display-4 position-absolute bottom-0 end-0  " id="Iconcolor"
+                            onclick="llamar()" return false;></i>
                     </div> <!--=cierre div imagen=-->
-                    <input type="file" accept="assets/*" onchange="Mostar_imagen(event)" id="miinput" style="display: none;" >
+                    <input type="file" accept="assets/*" onchange="Mostar_imagen(event)" id="miinput"
+                        style="display: none;">
                     <div class="col">
                         <header>
-                            <h1>Hola Soy <strong id="recuperar_nombre" >Registrate para ver tu nombre</strong>.</h1>
+                            <h1>Hola Soy <strong id="recuperar_nombre">Registrate para ver tu nombre</strong>.</h1>
                         </header>
                         <p>Y este es mi <strong>pequeño portafolio</strong>, una plantilla de sitio HTML5 gratuita y
                             totalmente responsiva.</p>
@@ -196,9 +211,9 @@
         </header> <!--=cierre header=-->
         <!--Cuerpo del documento html-->
         <main class="container-fluid">
-         
+
             <section class="row "> <!--contendor main -->
-              
+
 
                 <!--*barra horizontal basica-->
                 <aside class="container-md ">
@@ -369,8 +384,7 @@
                             <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
 
                                 <h4>HTML</h4>
-                                <img src="img/html5.jpg" alt="HTML"
-                                    class="img-thumbnail rounded-4   border-success ">
+                                <img src="img/html5.jpg" alt="HTML" class="img-thumbnail rounded-4   border-success ">
                             </div>
                             <div class="col-10 col-sm-3  mb-3 mx-3  text-center ">
 
@@ -401,7 +415,7 @@
                             </div>
                         </div>
                     </article> <!--=cieere  cursos=-->
-                
+
                     <!--=habilidades=-->
                     <article class="container-md  justify-content-center border-bottom border-1 mb-3">
                         <div id="habilidades"></div> <!--id para navegacion directa-->
@@ -502,87 +516,80 @@
 
                         </div> <!--cierre prueba uno posicion-->
                     </article> <!--=habilidades cierre=-->
-                   <!--=contenedor del boton fijo del washatp y otros-->
-                   <article class="col-3   mt-5">
-                    
-                    <div class="d-flex justify-content-center  fixed-bottom"> 
-                    
-                        <div class="row position-absolute bottom-0 end-0 ">
-                          
-                          <div class="row-cols-1  m-auto  mb-5">
-                           <div  >
-                            <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
-                            target="_blank" 
-                            data-bs-toggle="tooltip" 
-                            data-bs-placement="left" 
-                            data-bs-title="¿Te podemos ayudar?" 
-                            data-bs-custom-class="custom-tooltip"
-                            class="mx-2">
-                            <i class="bi-whatsapp  rounded-circle border-2  display-6 " style=" color: green; "></i>
-                            </a>
-                         </div>
-                         <div class="mb-md-2 mt-1 ms-1 ">
-                            <a href="https://carloszapatadev95.github.io/web_html/"
-                            target="_blank" 
-                            data-bs-toggle="tooltip" 
-                            data-bs-placement="left" 
-                            data-bs-title="¿+ Proyecto?" 
-                            data-bs-custom-class="custom-tooltip"
-                            class="me-2">
-                            <img  src="img/logo.png"  class="rounded-circle  shadow " style=" height: 40px; width: 40px;  ">
-                            </a>
-                         </div>
-                         <div class="mb-4 mt-1 ">
-                            <a href="./repositorio/Cv-master.zip"
-                            download="github-pages"
-                            target="_blank" 
-                            data-bs-toggle="tooltip" 
-                            data-bs-placement="left" 
-                            data-bs-title="descargar repositorio" 
-                            data-bs-custom-class="custom-tooltip"
-                            class="mx-2">
-                            <i class="bi-download  rounded-circle border-2  display-6 " style=" color: rgb(103, 11, 250); "></i>
-                            </a>
-                         </div>
-                    </div>
-                </div>
-                </div>
-                </article>  <!--= cierre contenedor del boton fijo del washatp y otros-->
+                    <!--=contenedor del boton fijo del washatp y otros-->
+                    <article class="col-3   mt-5">
+
+                        <div class="d-flex justify-content-center  fixed-bottom">
+
+                            <div class="row position-absolute bottom-0 end-0 ">
+
+                                <div class="row-cols-1  m-auto  mb-5">
+                                    <div>
+                                        <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
+                                            target="_blank" data-bs-toggle="tooltip" data-bs-placement="left"
+                                            data-bs-title="¿Te podemos ayudar?" data-bs-custom-class="custom-tooltip"
+                                            class="mx-2">
+                                            <i class="bi-whatsapp  rounded-circle border-2  display-6 "
+                                                style=" color: green; "></i>
+                                        </a>
+                                    </div>
+                                    <div class="mb-md-2 mt-1 ms-1 ">
+                                        <a href="https://carloszapatadev95.github.io/web_html/" target="_blank"
+                                            data-bs-toggle="tooltip" data-bs-placement="left"
+                                            data-bs-title="¿+ Proyecto?" data-bs-custom-class="custom-tooltip"
+                                            class="me-2">
+                                            <img src="img/logo.png" class="rounded-circle  shadow "
+                                                style=" height: 40px; width: 40px;  ">
+                                        </a>
+                                    </div>
+                                    <div class="mb-4 mt-1 ">
+                                        <a href="./repositorio/Cv-master.zip" download="github-pages" target="_blank"
+                                            data-bs-toggle="tooltip" data-bs-placement="left"
+                                            data-bs-title="descargar repositorio" data-bs-custom-class="custom-tooltip"
+                                            class="mx-2">
+                                            <i class="bi-download  rounded-circle border-2  display-6 "
+                                                style=" color: rgb(103, 11, 250); "></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article> <!--= cierre contenedor del boton fijo del washatp y otros-->
                 </article><!--cierre contendor main-->
             </section><!--cierre contendor secciones main-->
         </main>
     </div>
 
-    
 
-  
+
+
     <!--*footer-->
-    <footer class="container-fluid" >
-        <div class="container-fluid bg-secondary " style="height:70px; " > <!--contenedor main footer-->
-         <div class="col" >
-            <div class="col justify-content-center">
+    <footer class="container-fluid">
+        <div class="container-fluid bg-secondary " style="height:70px; "> <!--contenedor main footer-->
+            <div class="col">
+                <div class="col justify-content-center">
 
 
-                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" class="mx-2"><i class="bi-facebook "
-                        style=" color: rgb(97, 160, 255); font-size: 25px;"></i></a>
-                <a href="#" class="mx-2 mb-1"><i class="bi-instagram "
-                        style="color: rgb(255, 160, 97); font-size: 25px; "></i></a>
-                <a href="https://twitter.com/zapata_Dev" target="_blank" class="mx-2 mb-1"><i class="bi-twitter-x "
-                        style="color: rgb(29, 185, 123); font-size: 25px; color: black; "></i></a>
-                <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
-                    target="_blank" class="mx-2 mb-1"><i class="bi-whatsapp  "
-                        style=" color: green; font-size: 25px; "></i></a>
-                     
+                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank" class="mx-2"><i
+                            class="bi-facebook " style=" color: rgb(97, 160, 255); font-size: 25px;"></i></a>
+                    <a href="#" class="mx-2 mb-1"><i class="bi-instagram "
+                            style="color: rgb(255, 160, 97); font-size: 25px; "></i></a>
+                    <a href="https://twitter.com/zapata_Dev" target="_blank" class="mx-2 mb-1"><i class="bi-twitter-x "
+                            style="color: rgb(29, 185, 123); font-size: 25px; color: black; "></i></a>
+                    <a href="https://wa.me/+584245397571?text=Hola%20quiero%20mas%20informaci&oacute;n%20de%20tu%20producto"
+                        target="_blank" class="mx-2 mb-1"><i class="bi-whatsapp  "
+                            style=" color: green; font-size: 25px; "></i></a>
+
+                </div>
+
+                <div class="col justify-content-center ">
+                    <p class="color">&#169; <span id="hora">2023</span> Grupo solteca C.A</p>
+                </div>
+
             </div>
-           
-            <div class="col justify-content-center ">
-             <p class="color" >&#169; <span  id="hora">2023</span> Grupo solteca C.A</p>
-            </div>
-            
-        </div>
         </div>
     </footer>
-   
+
     <script src="index.js"></script>
 </body>
 
