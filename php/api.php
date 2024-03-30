@@ -19,7 +19,7 @@ if (!$conexion) {
 
   // echo json_encode("conectado");
    // $user_correo = $_GET['correo'];
-    //$consulta_usuario_guardado = "SELECT * FROM registro WHERE telefono LIKE '%$user_correo%'";
+   // $consulta_usuario_guardado = "SELECT * FROM registro WHERE telefono LIKE '%$user_correo%'";
     //variable para consultar datos en la tabla que contiene los datos      
    //$consulta_usuario_guardado = "SELECT * FROM registro";
     $consulta_usuario_guardado = "SELECT * FROM registro ORDER BY ID DESC LIMIT 1";
@@ -34,9 +34,6 @@ if ($res = mysqli_store_result($conexion)) {
       $res1 = mysqli_fetch_assoc($res);  
       echo json_encode($res1);
       mysqli_free_result($res);
- 
-
-
 }
 
 while (mysqli_next_result($conexion)&& mysqli_more_results($conexion));
