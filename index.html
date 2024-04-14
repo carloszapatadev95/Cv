@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="refresh" content="5"> Recarga cada 5 segundos -->
-
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
     <title>Carlos Zapata</title>
     <link rel="icon" href="img/Imagen_Cv.jpg" type="img/png">
     <link rel="stylesheet" href="scss/style.css">
@@ -46,21 +46,24 @@
                             <a class="nav-link  " href="#habilidades">Habilidades</a>
                         </li>
                         <li class="nav-item mx-4 ">
+                        
                             <button type="button" class="nav-link mx-auto boton_style " data-bs-toggle="modal"
                                 data-bs-target="#Modal">
                                 Contacto
                             </button>
                         </li>
                         <li class="nav-item mx-4 ">
-                            <form action="./php/formulario_guardar.php" method="get">
-                                <input class="form-control me-2"  id="buscar_usuario" placeholder="telefono">
-                            <button type="button" class="btn btn-outline-light" onclick="Buscar_user()">Buscar Usuario </button>
+                            <form action="./php/api.php" method="get">
+                                <input class="form-control me-2"  id="buscar_usuario" placeholder="email">
+                            <button type="button" class="btn btn-outline-light" onclick="Buscar_user_Mtodo_asyn()">Sing In</button>
                         </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- sing in usuario registrado -->
+        
         <!--modal-->
         <div class="modal " id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -71,19 +74,20 @@
                         </div>
                     </div>
                     <div class="modal-body ">
-                        <form class="row " action="./php/formulario_guardar.php" method="POST">
+                        <form class="row "   id="formulario" action="./php/formulario_guardar.php" method="post">
+                    <!-- <form class="row "   id="formulario">  -->
                             <div class="col-md-6  text-start">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
                             <div class="col-md-6 text-start">
                                 <label for="apellido" class="form-label">Apellido</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                                <input type="text" class="form-control" id="apellido" name="apellido">
                             </div>
 
                             <div class="col-md-6 text-start">
                                 <label for="Email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="Email" name="Email" required>
+                                <input type="email" class="form-control" id="Email" name="Email" >
                             </div>
                             <div class="col-md-6 text-start">
                                 <label for="telefono" class="form-label">Telefono</label>
@@ -92,16 +96,16 @@
                             <div class="col-12 text-start">
                                 <label for="direccion" class="form-label">Direccion</label>
                                 <input type="text" class="form-control text-start" id="direccion" name="direccion"
-                                    placeholder="Ulb/condomini Calle Principal" required>
+                                    placeholder="Ulb/condomini Calle Principal" >
                             </div>
                             <div class="col-12 text-start">
                                 <label for="casa" class="form-label">Direccion 2</label>
                                 <input type="text" class="form-control text-start" id="casa" name="casa"
-                                    placeholder="Apartamento, estudio o piso casa/#" required>
+                                    placeholder="Apartamento, estudio o piso casa/#">
                             </div>
                             <div class="col-md-4 text-start">
                                 <label for="estado" class="form-label">Estado</label>
-                                <select id="estado" name="estado" class="form-select">
+                                <select id="estado" name="estado" class="form-select"  >
                                     <option selected="">Elegir...</option>
                                     <option>Amazonas </option>
                                     <option>Anzoátegui</option>
@@ -167,16 +171,15 @@
                             <div class="col-12">
                                 <div class="form-check  text-start mt-2">
                                     <label class="form-check-label " for="terminos">acepto terminos</label>
-                                    <input class="form-check-input" type="checkbox" id="terminos" name="terminos">
+                                    <input class="form-check-input" type="checkbox" id="terminos" name="terminos" >
 
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" onclick=" ()=>{
-                                      peticion();
-                                    datos_formulario();}" value="Enviar"
-                                    class="btn btn-primary">Iniciar
-                                    sesión</button>
+                                <button type="submit"
+                                 onclick=" ()=>{ peticion(); datos_formulario();}" value="Enviar"class="btn btn-primary">
+                                 Iniciar sesión
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -225,20 +228,19 @@
                                 <h3 class="mb-2">Datos Personales</h3>
                                 <div class="col col-sm-2 mt-3">
                                     <p><strong>Nombre</strong> </p>
-                                    <p>Carlos Zapata</p>
+                                    <p id="nombre_user">Carlos Zapata</p>
                                 </div>
                                 <div class="col col-sm-2 mt-3 ">
                                     <p><strong>Direccion</strong></p>
-                                    <p>Ulb. altos del note casa numero 24 los crepusculos</p>
+                                    <p id="direccion_user" >Ulb. altos del note casa numero 24 los crepusculos</p>
                                 </div>
                                 <div class="col col-sm-2 mt-3 ">
                                     <p><strong>Telefono</strong></p>
-                                    <p>+58 424-5397571</p>
+                                    <p id="telefono_user">+58 424-5397571</p>
                                 </div>
                                 <div class="col col-sm-2 mt-3 ">
                                     <p><strong>Correo Electronico</strong></p>
-                                    <p>zapataaraujo95@gmail.com</p>
-                                    <p>carlos.zapata.dev@gmail.com</p>
+                                    <p id="correo_user">carlos.zapata.dev@gmail.com</p>
                                 </div>
 
                                 <div class="col col-sm-2 mt-3 mx-2 ">

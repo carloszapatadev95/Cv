@@ -17,31 +17,38 @@ if (!$conexion) {
    die("no conectado" . mysqli_connect_error());
 } else {
 
-  // echo json_encode("conectado");
-   // $user_correo = $_GET['correo'];
-   // $consulta_usuario_guardado = "SELECT * FROM registro WHERE telefono LIKE '%$user_correo%'";
-    //variable para consultar datos en la tabla que contiene los datos      
-   //$consulta_usuario_guardado = "SELECT * FROM registro";
-    $consulta_usuario_guardado = "SELECT * FROM registro ORDER BY ID DESC LIMIT 1";
-    //$consulta_usuario_guardado = "SELECT CURRENT_USER ();";
-    //$consulta_usuario_guardado = "SELECT * FROM registro WHERE telefono LIKE '%$user_correo%'";
-   //     // metodo para hacer consultas en los  elementos de la tabla de la base de datos
+     //echo json_encode("conectado");
+     //variables para consultar datos en la tabla que contiene los datos 
+     
+     //consulta 1  
+   //  $user_correo = $_GET['correo'];
+   //  $consulta_correo = "SELECT * FROM registro WHERE correo LIKE '%$user_correo%'";
+   //  $respuesta_correo = mysqli_query($conexion, $consulta_correo);
+    //$consulta_usuario_guardado ="SELECT * FROM registro";  
+ 
+    //consulta 2
+     //esta es una forma de buscar un usuario;
+    //$id_user= 20;
+     //$consulta_usuario_guardado_uno = "SELECT * FROM registro WHERE ID = $id_user";
+     //esta es otra manera de buscar un usuario;
+     $consulta_ultimo_registro = "SELECT * FROM registro ORDER BY ID DESC LIMIT 1";
+     $respuesta_ultimo_registro = mysqli_query($conexion, $consulta_ultimo_registro);
    
-   if  (mysqli_multi_query($conexion, $consulta_usuario_guardado)){
-
-      
-if ($res = mysqli_store_result($conexion)) {
-      $res1 = mysqli_fetch_assoc($res);  
-      echo json_encode($res1);
-      mysqli_free_result($res);
-}
-
-while (mysqli_next_result($conexion)&& mysqli_more_results($conexion));
-}
-}
-
-
+     
+   
+//   if(mysqli_num_rows($respuesta_correo)>0) {
+//           $datos_correo = $respuesta_correo->fetch_assoc();
+//           echo json_encode($datos_correo);
+//           mysqli_free_result($respuesta_correo);
+ if (mysqli_num_rows($respuesta_ultimo_registro)>0) {
+          $datos_registro = $respuesta_ultimo_registro->fetch_assoc();
+          echo json_encode($datos_registro);
+          mysqli_free_result($respuesta_ultimo_registro);
+          }
+        
+} 
 mysqli_close($conexion);
+
 ?>
 
 
@@ -50,7 +57,7 @@ mysqli_close($conexion);
 //    die("no conectado" . mysqli_connect_error());
 // } else {
 //    $user_correo = $_GET['correo'];
-//    $consulta_usuario_guardado = "SELECT * FROM registro WHERE telefono LIKE '%$user_correo%'";
+//    $consulta_usuario_guardado = "SELECT * FROM registro WHERE correo LIKE '%$user_correo%'";
 //    $consulta_usuario_guardado_dos = mysqli_query($conexion, $consulta_usuario_guardado);
 //    if (mysqli_num_rows($consulta_usuario_guardado_dos) > 0) {
 //       $res = $consulta_usuario_guardado_dos->fetch_assoc();
@@ -60,4 +67,4 @@ mysqli_close($conexion);
 //    }
 // }
 // mysqli_close($conexion);
-//  ?>
+  ?>

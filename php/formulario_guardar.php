@@ -35,21 +35,21 @@
     echo "<h5> nombre  apellido:</h5>  " . $nombre = $_POST['nombre'];
     echo " " . $apellido = $_POST['apellido'];
     echo "" ? "<br>" : "<br>";
-    echo "<h5> correo:</h5>  " . $correo = $_POST['Email'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5> telefono: </h5> " . $telefono = $_POST['telefono'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5> direccion 1:</h5>  " . $direccion1 = $_POST['direccion'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5>direccion 2:</h5>   " . $direccion2 = $_POST['casa'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5> estado:</h5>  " . $estado = $_POST['estado'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5>ciudad:</h5>   " . $ciudad = $_POST['ciudad'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5>postal:</h5>   " . $codigo_postal = $_POST['postal'];
-    echo "" ? "<br>" : "<br>";
-    echo "<h5>terminos:</h5>   " . $terminos = $_POST['terminos'];
+    echo "<h5> correo: </h5>  " .$correo = $_POST['Email'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5> telefono: </h5> " .$telefono = $_POST['telefono'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5> direccion 1:</h5>" .$direccion1 = $_POST['direccion'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5>direccion 2:</h5>" .$direccion2 = $_POST['casa'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5> estado: </h5>  " .$estado = $_POST['estado'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5> ciudad: </h5>   " .$ciudad = $_POST['ciudad'];
+    echo "" ? " <br>" : "<br>";
+    echo "<h5> postal: </h5>   " .$codigo_postal = $_POST['postal'];
+    echo " " ? " <br> " : "<br> ";
+    echo "<h5> terminos: </h5>" . $terminos = $_POST['terminos'];
 
     //consulta usuario existe
     $usuario = $correo;
@@ -58,10 +58,9 @@
     if (mysqli_multi_query($conectar, $consulta_user_existe)) {
       if ($respuesta = mysqli_use_result($conectar)) {
         $respuesta_uno = mysqli_fetch_row($respuesta);
-
         if ($respuesta_uno == true) {
-          $ess = "usuario existe........";
-          header("Location: http://localhost/cv/ ");
+          //echo json_encode('usuario existe...!');
+          header("Location: http://localhost/cv/ ");          
         } else {
           $sql = "INSERT INTO registro (  nombre, apellido, correo, telefono, direccion_uno, direccion_dos,  estado, ciudad,  codigo_postal,  terminos)  
         VALUES('$nombre','$apellido', '$correo','$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos'   )";
@@ -72,30 +71,26 @@
 
           } else {
             $ess = "usuario guardado........";
+            //echo json_encode($ess);
             header("Content-type: aplication/json");
 
             //header("http://localhost/cv/php/api.php");
             //header("Location: http://192.168.0.105/cv/ ");
             header("Location: http://localhost/cv/ ");
             //header("Location: http://192.168.0.105/cv/ ");
-  
-
+           
           }
+        
         }
+        mysqli_free_result($respuesta);
+
       }
+ 
     }
+
     mysqli_close($conectar);
   }
-
-
   ?>
-  <!-- con este script lo hacemo es ver que se ejecuta el codigo
-      que estamos creando -->
-  <script>
-    var aler = <?php echo json_encode(["datos" => $respuesta_uno, "aler" => $ess]); ?>;
-    console.log(aler.aler);
-    console.log(aler.datos);
-  </script>
 </body>
 
 </html>

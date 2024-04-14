@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.alerta {
+  color: red;
+}
+
 .boton_style {
   background-color: transparent;
   border: none;
