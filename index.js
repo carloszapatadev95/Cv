@@ -93,7 +93,7 @@ formulario.addEventListener("submit", datos_formulario);
     //
     try {
         //optenes valor a buscar
-        const usuarioABuscar = document.querySelector("#buscar_usuario").value;
+        const usuarioABuscar = document.querySelector("#user_email").value;
         //solicitamos por medio de la api el datos a buscar
         const respuesta = await fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`,
          
@@ -101,27 +101,48 @@ formulario.addEventListener("submit", datos_formulario);
         //optenemos la respuesta del servidor u base de datos;
         const datos = await respuesta.json();
         //se verifica si existe usuario y se maneja como error
-         if(!datos){
-            console.error('usuario no encontrado realizar registro', respuesta);
-            alert("usuario no encontrado realizar registro:", respuesta);
-            window.location.reload();
+         if(datos.error ){
+            console.error('usuario no encontrado realizar registro', datos.error);
+            alert("usuario no encontrado realizar registro:", datos.error);
+            //window.location.reload();
             throw new Error('usuario no encontrado');
         
          }else{
             //si el usuario existe procesamo los datos
            console.log("Datos del usuario desde el servidor:", datos);
            localStorage.setItem("dato1", datos.nombre);
+           localStorage.setItem("dato_nombre", datos.nombre);
+           localStorage.setItem("dato_correo", datos.correo);
+           localStorage.setItem("dato_direccion", datos.direccion_uno);
+           localStorage.setItem("dato_telefono", datos.telefono);
+           let dato_nombreguardado_user = localStorage.getItem("dato_nombre");
+           let dato_nombreguardado_user_direccion = localStorage.getItem("dato_direccion");
+           let dato_nombreguardado_user_telefono = localStorage.getItem("dato_telefono",);
+           let dato_nombreguardado_user_correo = localStorage.getItem("dato_correo"); 
            let dato_nombreguardado = localStorage.getItem("dato1");
            document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado; 
+           document.querySelector("#nombre_user").innerHTML = dato_nombreguardado_user;               
+           document.querySelector("#direccion_user").innerHTML = dato_nombreguardado_user_direccion;               
+           document.querySelector("#telefono_user").innerHTML = dato_nombreguardado_user_telefono;               
+           document.querySelector("#correo_user").innerHTML = dato_nombreguardado_user_correo;  
+           document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado_user;  
+          
          }
             
   
-        
+         //window.location.reload(true); // Recarga desde el servidor
        
     } catch (error) {
         console.error("Error al buscar usuario:", error);
     }
 };
+window.addEventListener('load', ()=>{
+      const datoguardado = localStorage.getItem('dato1');
+      if (datoguardado) {
+          document.querySelector('#user_email').innerHTML = datoguardado;
+          
+      }
+     });
 
 //esta es otra forma de buscar usuario funciona me gusta mas el aysig/await
     // const Buscar_user = () => {

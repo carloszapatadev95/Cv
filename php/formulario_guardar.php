@@ -37,6 +37,8 @@
     echo "" ? "<br>" : "<br>";
     echo "<h5> correo: </h5>  " .$correo = $_POST['Email'];
     echo "" ? " <br>" : "<br>";
+    echo "<h5> telefono: </h5> " .$contraseña = $_POST['contraseña'];
+    echo "" ? " <br>" : "<br>";
     echo "<h5> telefono: </h5> " .$telefono = $_POST['telefono'];
     echo "" ? " <br>" : "<br>";
     echo "<h5> direccion 1:</h5>" .$direccion1 = $_POST['direccion'];
@@ -62,8 +64,8 @@
           //echo json_encode('usuario existe...!');
           header("Location: http://localhost/cv/ ");          
         } else {
-          $sql = "INSERT INTO registro (  nombre, apellido, correo, telefono, direccion_uno, direccion_dos,  estado, ciudad,  codigo_postal,  terminos)  
-        VALUES('$nombre','$apellido', '$correo','$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos'   )";
+          $sql = "INSERT INTO registro (  nombre, apellido, correo, contraseña, telefono, direccion_uno, direccion_dos,  estado, ciudad,  codigo_postal,  terminos)  
+        VALUES('$nombre','$apellido', '$correo',''$contraseña',$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos'   )";
 
           $ejecutar = mysqli_query($conectar, $sql);
           if (!$ejecutar) {
@@ -75,7 +77,7 @@
             header("Content-type: aplication/json");
 
             //header("http://localhost/cv/php/api.php");
-            //header("Location: http://192.168.0.105/cv/ ");
+           // header("Location: http://192.168.0.105/cv/ ");
             header("Location: http://localhost/cv/ ");
             //header("Location: http://192.168.0.105/cv/ ");
            
