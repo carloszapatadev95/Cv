@@ -62,10 +62,10 @@ function llamar() {
 //variable que captura los datos del formulario atraves del id del elemento form
 const formulario = document.querySelector("#formulario");
 //escucha un evento sumit atraves de la funcion datos formulario.
-formulario.addEventListener("submit", datos_formulario);
+formulario.addEventListener("submit", ValidarFormulario);
 //funcion para capturar los datos del lado cliente
 //y validar si un campo esta vacio
- function  datos_formulario(e) {
+ function  ValidarFormulario(e) {
     // variable con la que se optinen todos los datos del formulario
     const elementos =  formulario.elements;
     //esta variable se recorre todos los datos del formulario,y se capturan;
@@ -74,14 +74,14 @@ formulario.addEventListener("submit", datos_formulario);
     for (let i = 0; i <= Datos.length; i++) {
         const element =  Datos[i];
         if (element.value.trim()  === '') {
-         console.log('el campo ',i + 1, element.name.toUpperCase()+ ' no puede ir vacio ' );
-        alert('el campo  ' + element.name.toUpperCase() + ' no puede ir vacio ');
-        e.preventDefault();
-        return;
+            console.log(`El campo ${i + 1} (${element.name.toUpperCase()}) no puede ir vacío.`);
+            alert(`El campo ${element.name.toUpperCase()} no puede ir vacío.`);
+           e.preventDefault();
+           return;
        }
        
     }
-    window.location.reload(true); // Recarga desde el servidor
+    window.location.reload(true); // Recarga 
     
     
 };
@@ -133,9 +133,11 @@ formulario.addEventListener("submit", datos_formulario);
          //window.location.reload(true); // Recarga desde el servidor
        
     } catch (error) {
-        console.error("Error al buscar usuario:", error);
+        console.error("Error al buscar usuario:", error.message);
     }
 };
+// Escucha el evento submit para buscar el usuario
+
 window.addEventListener('load', ()=>{
       const datoguardado = localStorage.getItem('dato1');
       if (datoguardado) {
@@ -208,3 +210,24 @@ window.addEventListener('load', ()=>{
           
 //     //   }
 //     //  });
+
+//ESTA ES OTRA MANERA
+// function validarFormulario(e) {
+//     const formulario = document.querySelector("#formulario");
+//     const elementos = formulario.elements;
+
+//     for (let i = 0; i < elementos.length; i++) {
+//         const campo = elementos[i];
+//         if (campo.value.trim() === '') {
+//             console.log(`El campo ${i + 1} (${campo.name.toUpperCase()}) no puede ir vacío.`);
+//             alert(`El campo ${campo.name.toUpperCase()} no puede ir vacío.`);
+//             e.preventDefault();
+//             return;
+//         }
+//     }
+
+//     window.location.reload(true); // Recarga la página
+// }
+
+// Escucha el evento submit a través de la función validarFormulario
+//formulario.addEventListener("submit", validarFormulario);
