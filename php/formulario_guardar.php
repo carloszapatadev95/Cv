@@ -37,7 +37,7 @@
     echo "" ? "<br>" : "<br>";
     echo "<h5> correo: </h5>  " .$correo = $_POST['Email'];
     echo "" ? " <br>" : "<br>";
-    echo "<h5> telefono: </h5> " .$contraseña = $_POST['contraseña'];
+    echo "<h5> contraseña: </h5> " .$contraseña = $_POST['contraseña'];
     echo "" ? " <br>" : "<br>";
     echo "<h5> telefono: </h5> " .$telefono = $_POST['telefono'];
     echo "" ? " <br>" : "<br>";
@@ -51,7 +51,7 @@
     echo "" ? " <br>" : "<br>";
     echo "<h5> postal: </h5>   " .$codigo_postal = $_POST['postal'];
     echo " " ? " <br> " : "<br> ";
-    echo "<h5> terminos: </h5>" . $terminos = $_POST['terminos'];
+    echo "<h5> terminos: </h5>" .$terminos = $_POST['terminos'];
 
     //consulta usuario existe
     $usuario = $correo;
@@ -61,21 +61,20 @@
       if ($respuesta = mysqli_use_result($conectar)) {
         $respuesta_uno = mysqli_fetch_row($respuesta);
         if ($respuesta_uno == true) {
-          //echo json_encode('usuario existe...!');
+          echo json_encode('usuario existe...!');
           header("Location: http://localhost/cv/ ");          
         } else {
           $sql = "INSERT INTO registro (  nombre, apellido, correo, contraseña, telefono, direccion_uno, direccion_dos,  estado, ciudad,  codigo_postal,  terminos)  
-        VALUES('$nombre','$apellido', '$correo',''$contraseña',$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos'   )";
+        VALUES('$nombre','$apellido', '$correo','$contraseña', '$telefono', '$direccion1', '$direccion2', '$estado', '$ciudad', '$codigo_postal',  '$terminos')";
 
           $ejecutar = mysqli_query($conectar, $sql);
           if (!$ejecutar) {
             echo "no se guardaron los datos";
 
           } else {
-            $ess = "usuario guardado........";
-            //echo json_encode($ess);
-            header("Content-type: aplication/json");
-
+            $res = "usuario guardado........";
+            echo json_encode($res);
+    
             //header("http://localhost/cv/php/api.php");
            // header("Location: http://192.168.0.105/cv/ ");
             header("Location: http://localhost/cv/ ");

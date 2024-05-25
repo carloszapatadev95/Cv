@@ -1,7 +1,7 @@
 
   
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+// const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+// const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
 /*pasa la fecha al documento */
 const  fecha = new Date();
@@ -79,7 +79,7 @@ formulario.addEventListener("submit", ValidarFormulario);
            e.preventDefault();
            return;
        }
-       
+       console.log(element);
     }
     window.location.reload(true); // Recarga 
     
@@ -89,62 +89,58 @@ formulario.addEventListener("submit", ValidarFormulario);
 // utilizando los metodos aysign/await que se deja como predeterminado 
 //porque es menos verboso y lo entiendo mas;
 //funcion que se llama desde el html atraves del boton sign up;
-  const Buscar_user_Mtodo_asyn = async() => {
-    //
-    try {
-        //optenes valor a buscar
-        const usuarioABuscar = document.querySelector("#user_email").value;
-        //solicitamos por medio de la api el datos a buscar
-        const respuesta = await fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`,
-         
-    );
-        //optenemos la respuesta del servidor u base de datos;
-        const datos = await respuesta.json();
-        //se verifica si existe usuario y se maneja como error
-         if(datos.error ){
-            console.error('usuario no encontrado realizar registro', datos.error);
-            alert("usuario no encontrado realizar registro:", datos.error);
-            //window.location.reload();
-            throw new Error('usuario no encontrado');
-        
-         }else{
-            //si el usuario existe procesamo los datos
-           console.log("Datos del usuario desde el servidor:", datos);
-           localStorage.setItem("dato1", datos.nombre);
-           localStorage.setItem("dato_nombre", datos.nombre);
-           localStorage.setItem("dato_correo", datos.correo);
-           localStorage.setItem("dato_direccion", datos.direccion_uno);
-           localStorage.setItem("dato_telefono", datos.telefono);
-           let dato_nombreguardado_user = localStorage.getItem("dato_nombre");
-           let dato_nombreguardado_user_direccion = localStorage.getItem("dato_direccion");
-           let dato_nombreguardado_user_telefono = localStorage.getItem("dato_telefono",);
-           let dato_nombreguardado_user_correo = localStorage.getItem("dato_correo"); 
-           let dato_nombreguardado = localStorage.getItem("dato1");
-           document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado; 
-           document.querySelector("#nombre_user").innerHTML = dato_nombreguardado_user;               
-           document.querySelector("#direccion_user").innerHTML = dato_nombreguardado_user_direccion;               
-           document.querySelector("#telefono_user").innerHTML = dato_nombreguardado_user_telefono;               
-           document.querySelector("#correo_user").innerHTML = dato_nombreguardado_user_correo;  
-           document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado_user;  
+//   const Buscar_user_Mtodo_asyn = async() => {
+//     //
+//     try {
+//         //optenes valor a buscar
+//         const usuarioABuscar = document.querySelector("#user_email").value;
+//         //solicitamos por medio de la api el datos a buscar
+//         const respuesta = await fetch(`http://localhost/cv/php/api.php?correo=${usuarioABuscar}`);
+//         //optenemos la respuesta del servidor u base de datos;
+//         const datos = await respuesta.json();
+//         //se verifica si existe usuario y se maneja como error
+//          if(!datos){
+//             console.error('usuario no encontrado realizar registro', datos.error);
+//             alert("usuario no encontrado realizar registro:", datos.error);
+//             //window.location.reload();
+//            }else{
+//             //si el usuario existe procesamo los datos
+//            console.log("Datos del usuario desde el servidor:", datos);
+//            localStorage.setItem("dato1", datos.nombre);
+//            localStorage.setItem("dato_nombre", datos.nombre);
+//            localStorage.setItem("dato_correo", datos.correo);
+//            localStorage.setItem("dato_direccion", datos.direccion_uno);
+//            localStorage.setItem("dato_telefono", datos.telefono);
+//            let dato_nombreguardado_user = localStorage.getItem("dato_nombre");
+//            let dato_nombreguardado_user_direccion = localStorage.getItem("dato_direccion");
+//            let dato_nombreguardado_user_telefono = localStorage.getItem("dato_telefono",);
+//            let dato_nombreguardado_user_correo = localStorage.getItem("dato_correo"); 
+//            let dato_nombreguardado = localStorage.getItem("dato1");
+//            document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado; 
+//            document.querySelector("#nombre_user").innerHTML = dato_nombreguardado_user;               
+//            document.querySelector("#direccion_user").innerHTML = dato_nombreguardado_user_direccion;               
+//            document.querySelector("#telefono_user").innerHTML = dato_nombreguardado_user_telefono;               
+//            document.querySelector("#correo_user").innerHTML = dato_nombreguardado_user_correo;  
+//            document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado_user;  
           
-         }
+//          }
             
   
-         //window.location.reload(true); // Recarga desde el servidor
+//          //window.location.reload(true); // Recarga desde el servidor
        
-    } catch (error) {
-        console.error("Error al buscar usuario:", error.message);
-    }
-};
-// Escucha el evento submit para buscar el usuario
+//     } catch (error) {
+//         console.error("Error al buscar usuario:", error);
+//     }
+// };
+// // Escucha el evento submit para buscar el usuario
 
-window.addEventListener('load', ()=>{
-      const datoguardado = localStorage.getItem('dato1');
-      if (datoguardado) {
-          document.querySelector('#user_email').innerHTML = datoguardado;
+// window.addEventListener('load', ()=>{
+//       const datoguardado = localStorage.getItem('dato1');
+//       if (datoguardado) {
+//           document.querySelector('#user_email').innerHTML = datoguardado;
           
-      }
-     });
+//       }
+//      });
 
 //esta es otra forma de buscar usuario funciona me gusta mas el aysig/await
     // const Buscar_user = () => {
@@ -172,35 +168,45 @@ window.addEventListener('load', ()=>{
     //     }
     // };
 // ejemplo de busqueda de usuario 
- (peticion = () => {
-    console.log( "opteniendo dato desde la base de datos atraves de la api");
-    fetch(`http://localhost/cv/php/api.php`)
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.error) {
-            console.error("Usuario no encontrado:", data.error);
-        } else {
-            console.log("Datos del usuario desde la api :", data);
-            localStorage.setItem("dato_nombre", data.nombre);
-            localStorage.setItem("dato_correo", data.correo);
-            localStorage.setItem("dato_direccion", data.direccion_uno);
-            localStorage.setItem("dato_telefono", data.telefono);
-            let dato_nombreguardado_user = localStorage.getItem("dato_nombre");
-            let dato_nombreguardado_user_direccion = localStorage.getItem("dato_direccion");
-            let dato_nombreguardado_user_telefono = localStorage.getItem("dato_telefono",);
-            let dato_nombreguardado_user_correo = localStorage.getItem("dato_correo");
-            document.querySelector("#nombre_user").innerHTML = dato_nombreguardado_user;               
-            document.querySelector("#direccion_user").innerHTML = dato_nombreguardado_user_direccion;               
-            document.querySelector("#telefono_user").innerHTML = dato_nombreguardado_user_telefono;               
-            document.querySelector("#correo_user").innerHTML = dato_nombreguardado_user_correo;  
-            document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado_user;              
-        }
-        
-    }).catch((error) => {
-        console.error("Error al buscar usuario:", error);
-    });
-
-})();
+const obtenerDatosUsuario = async () => {
+    try {
+      const response = await fetch(`http://localhost/cv/php/api.php`);
+      const data = await response.json();
+  
+      if (data.error) {
+        console.error("Usuario no encontrado:", data);
+      } else {
+        console.log(data);
+        guardarDatosUsuario(data);
+      }
+    } catch (error) {
+      //console.error("Error al buscar usuario:", error);
+    }
+  };
+  
+  const guardarDatosUsuario = (data) => {
+    localStorage.setItem("dato_nombre", data.nombre);
+    localStorage.setItem("dato_correo", data.correo);
+    localStorage.setItem("dato_direccion", data.direccion_uno);
+    localStorage.setItem("dato_telefono", data.telefono);
+  
+    mostrarDatosUsuario();
+  };
+  
+  const mostrarDatosUsuario = () => {
+    let dato_nombreguardado_user = localStorage.getItem("dato_nombre");
+    let dato_nombreguardado_user_direccion = localStorage.getItem("dato_direccion");
+    let dato_nombreguardado_user_telefono = localStorage.getItem("dato_telefono");
+    let dato_nombreguardado_user_correo = localStorage.getItem("dato_correo");
+  
+    document.querySelector("#nombre_user").innerHTML = dato_nombreguardado_user;
+    document.querySelector("#direccion_user").innerHTML = dato_nombreguardado_user_direccion;
+    document.querySelector("#telefono_user").innerHTML = dato_nombreguardado_user_telefono;
+    document.querySelector("#correo_user").innerHTML = dato_nombreguardado_user_correo;
+    document.querySelector("#recuperar_nombre").innerHTML = dato_nombreguardado_user;
+  };
+  
+  obtenerDatosUsuario();
 
 
 // // window.addEventListener('load', ()=>{
