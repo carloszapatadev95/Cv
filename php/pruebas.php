@@ -24,7 +24,7 @@
     }else{
         echo '<h2>conectado a la basa de datos</h2>';
         // con esta variable consultamos todos los datos de la tabla de la base de datos
-       // $valor_buscar = $_GET['Email'];
+        $valor_buscar = $_GET[''];
         $consulta_datos = "SELECT * FROM registro";
         $user = "SELECT * FROM registro  WHERE correo = '' ";
         $consulta = mysqli_query( $conectar, $consulta_datos, );
