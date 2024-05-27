@@ -91,17 +91,8 @@ formulario.addEventListener("submit", ValidarFormulario);
 //funcion que se llama desde el html atraves del boton sign up;
     const modal = document.querySelector("#sign_in");     //document.querySelector('#sign_in');
     modal.addEventListener('shown.bs.modal', function() {
-    const input = document.querySelector('#user_email');
-    input.focus();
-    window.addEventListener('keydown',  (e) => {
-      if (e.key === 'Enter') {
-         Buscar_user_Mtodo_asyn();
-        input.value = '';
-     
-        modal.classList.add('hide');
-      }
-    
-    });
+    CerrarModal();
+
   });
  
   const Buscar_user_Mtodo_asyn = async () => {
@@ -158,11 +149,22 @@ formulario.addEventListener("submit", ValidarFormulario);
         console.error("Error al buscar usuario:", error);
     }
 };
-const cerrarModal = () => {
-     console.log('ok modal');
-    let mm= document.querySelector('#sign_in');
-    mm.hide();
-};
+const CerrarModal = () => {
+
+    let ModalPrueba = document.querySelector('[data-bs-dismiss="modal"]');
+    let EventoEnter = document.querySelector("#user_email");
+    EventoEnter.addEventListener("keyup", function(event) {
+        try {
+            if (event.key === "Enter" ) {
+            ModalPrueba.click();   
+            EventoEnter.value = '';
+           } 
+        } catch (error) {
+            console.error('tienes un error', error);
+        }       
+    });
+    EventoEnter.focus();  
+}
 
 // Escucha el evento submit para buscar el usuario
 
