@@ -89,17 +89,21 @@ formulario.addEventListener("submit", ValidarFormulario);
 // utilizando los metodos aysign/await que se deja como predeterminado 
 //porque es menos verboso y lo entiendo mas;
 //funcion que se llama desde el html atraves del boton sign up;
-    const modal = document.querySelector('#sign_in');
-    modal.addEventListener('shown.bs.modal', function(e) {
+    const modal = document.querySelector("#sign_in");     //document.querySelector('#sign_in');
+    modal.addEventListener('shown.bs.modal', function() {
     const input = document.querySelector('#user_email');
     input.focus();
-    input.addEventListener('keydown',(e)=>{
-      if (e.keyCode === 13) {
-        Buscar_user_Mtodo_asyn();       
+    window.addEventListener('keydown',  (e) => {
+      if (e.key === 'Enter') {
+         Buscar_user_Mtodo_asyn();
+        input.value = '';
+     
+        modal.classList.add('hide');
       }
+    
     });
   });
-
+ 
   const Buscar_user_Mtodo_asyn = async () => {
   
     try {
@@ -153,6 +157,11 @@ formulario.addEventListener("submit", ValidarFormulario);
     } catch (error) {
         console.error("Error al buscar usuario:", error);
     }
+};
+const cerrarModal = () => {
+     console.log('ok modal');
+    let mm= document.querySelector('#sign_in');
+    mm.hide();
 };
 
 // Escucha el evento submit para buscar el usuario
