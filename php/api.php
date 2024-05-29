@@ -39,7 +39,8 @@ if (!$conexion) {
     //  $respuesta_ultimo_registro = mysqli_query($conexion, $consulta_ultimo_registro);
    if(mysqli_num_rows($respuesta_correo)>0) {
           $datos_correo = $respuesta_correo->fetch_assoc();
-          // se exportan los datos pero no en forma de array u objetos
+          // se exportan los datos pero no en forma de array u objetos no hacerlo de esta forma
+          // echo json_encode([$datos_correo]);
           echo json_encode($datos_correo);
           mysqli_free_result($respuesta_correo);
   }else {
